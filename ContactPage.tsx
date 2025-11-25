@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { useLucide } from './useLucide';
 import { SocialIcon, Footer } from './SharedComponents';
+import { content } from './content';
 
 export const ContactPage = ({ onGoHome }: { onGoHome: () => void }) => {
   useLucide([]);
@@ -18,28 +19,30 @@ export const ContactPage = ({ onGoHome }: { onGoHome: () => void }) => {
       <main className="flex-grow flex flex-col items-center justify-center p-6 text-center">
         <div className="max-w-3xl w-full flex flex-col items-center">
           
-          <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Hi, Let's Connect!</h2>
+          <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">{content.contactPage.title}</h2>
           <p className="text-xl text-gray-300 mb-12 max-w-lg">
-            Whether you have a project in mind, want to discuss tech trends, or just want to say hi, I'm always open to a chat.
+            {content.contactPage.description}
           </p>
           
           <div className="flex justify-center flex-wrap gap-8 mb-16">
-            {/* <!-- EDIT SOCIAL LINKS HERE --> */}
-            <SocialIcon icon="mail" href="mailto:praveenchezhian1@gmail.com" colorClass="text-red-500" label="Email" />
-            <SocialIcon icon="instagram" href="#" colorClass="text-pink-600" label="Instagram" />
-            <SocialIcon icon="facebook" href="#" colorClass="text-blue-600" label="Facebook" />
-            <SocialIcon icon="twitter" href="#" colorClass="text-sky-500" label="X (Twitter)" />
-            <SocialIcon icon="linkedin" href="#" colorClass="text-blue-700" label="LinkedIn" />
-            <SocialIcon icon="github" href="#" colorClass="text-gray-900" label="GitHub" />
+            {content.contactPage.socials.map((social, idx) => (
+              <SocialIcon 
+                key={idx}
+                icon={social.icon} 
+                href={social.href} 
+                colorClass={social.colorClass} 
+                label={social.label} 
+              />
+            ))}
           </div>
 
           <div className="bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-lg">
              <p className="text-gray-400 mb-6">Or send me a direct message:</p>
              <a 
-               href="mailto:praveenchezhian1@gmail.com" 
+               href={`mailto:${content.global.email}`} 
                className="inline-block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition-all hover:shadow-[0_0_20px_rgba(79,70,229,0.5)]"
              >
-               Say Hello
+               {content.contactPage.ctaButton}
              </a>
           </div>
         </div>

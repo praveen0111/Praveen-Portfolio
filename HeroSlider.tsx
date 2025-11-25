@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useLucide } from './useLucide';
+import { content } from './content';
 
 export const HeroSlider = ({ onSelectCreative, onSelectAcademic }: { onSelectCreative: () => void, onSelectAcademic: () => void }) => {
   const [sliderPos, setSliderPos] = useState(50);
@@ -128,12 +129,6 @@ export const HeroSlider = ({ onSelectCreative, onSelectAcademic }: { onSelectCre
             className="absolute inset-0 w-full h-full"
             style={{ transform: `translateX(${parallaxOffset}px)` }}
         >
-            {/* 
-               Mobile Layout (md:hidden): 
-               - Content: Top 30%
-               - Character: Top 75%
-            */}
-            
             <div 
                 id="filmmaker-character" 
                 className="character absolute 
@@ -157,10 +152,10 @@ export const HeroSlider = ({ onSelectCreative, onSelectAcademic }: { onSelectCre
             <div className="panel-content absolute 
                             top-[30%] left-1/2 -translate-x-1/2 text-center 
                             md:top-1/2 md:-translate-y-1/2 md:right-[10%] md:left-auto md:translate-x-0 md:text-right pr-4 md:pr-0">
-                <div className="panel-logo text-gray-400">PE.</div>
-                <h1 className="panel-title text-white">Creative</h1>
-                <p className="panel-description md:ml-auto text-gray-400">Filmmaker with a passion for visual storytelling and expertise in editing and post-production workflow.</p>
-                <button type="button" onClick={onSelectCreative} className="panel-link">Explore My Work</button>
+                <div className="panel-logo text-gray-400">{content.global.logoText}</div>
+                <h1 className="panel-title text-white">{content.hero.creative.title}</h1>
+                <p className="panel-description md:ml-auto text-gray-400">{content.hero.creative.description}</p>
+                <button type="button" onClick={onSelectCreative} className="panel-link">{content.hero.creative.buttonText}</button>
             </div>
         </div>
       </div>
@@ -199,10 +194,10 @@ export const HeroSlider = ({ onSelectCreative, onSelectAcademic }: { onSelectCre
             <div className="panel-content absolute 
                             top-[30%] left-1/2 -translate-x-1/2 text-center 
                             md:top-1/2 md:-translate-y-1/2 md:left-[10%] md:translate-x-0 md:text-left pl-4 md:pl-0">
-                <div className="panel-logo text-gray-500">PE.</div>
-                <h1 className="panel-title text-red-600">Digital</h1>
-                <p className="panel-description text-gray-600">MBA candidate specializing in the intersection of technology, marketing, and product design.</p>
-                <button type="button" onClick={onSelectAcademic} className="panel-link">View My Profile</button>
+                <div className="panel-logo text-gray-500">{content.global.logoText}</div>
+                <h1 className="panel-title text-red-600">{content.hero.academic.title}</h1>
+                <p className="panel-description text-gray-600">{content.hero.academic.description}</p>
+                <button type="button" onClick={onSelectAcademic} className="panel-link">{content.hero.academic.buttonText}</button>
             </div>
         </div>
       </div>
